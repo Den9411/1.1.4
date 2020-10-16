@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Util {
-    private static final String URL = "jdbc:mysql://localhost:3306/mydbtest";
+    private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?serverTimezone=Europe/Moscow";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
 
@@ -18,7 +18,7 @@ public class Util {
             con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             return con;
         } catch (SQLException e) {
-            System.out.println("Соединение не установлено");
+            System.out.println("Соединение не установлено " + e);
         }
         return null;
     }
