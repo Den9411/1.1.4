@@ -31,8 +31,8 @@ public class Main {
         for (User user : list){
             System.out.println(user);
         }
-
-        US.cleanUsersTable();
-        US.dropUsersTable();
+//
+//        US.cleanUsersTable();
+//        US.dropUsersTable();
     }
 }
