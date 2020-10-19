@@ -23,10 +23,14 @@ public class HibernateUtil {
         prop.setProperty("dialect", "org.hibernate.dialect.MySQL8Dialect");
         prop.setProperty("show_sql", "true");
 //        prop.setProperty("hibernate.default_schema", "users");
-        prop.setProperty("hibernate.hbm2ddl.auto", "create");
+//        prop.setProperty("hibernate.hbm2ddl.auto", "create");
+
+        Configuration configuration = new Configuration().addAnnotatedClass(User.class).addProperties(prop);
+
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
 
 
-        sessionFactory = new Configuration().addAnnotatedClass(User.class).addProperties(prop).buildSessionFactory();
+        sessionFactory = configuration.buildSessionFactory(builder.build());
 
         return sessionFactory;
     }
